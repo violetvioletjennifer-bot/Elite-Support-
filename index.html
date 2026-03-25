@@ -7,11 +7,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; }
+        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; scroll-behavior: smooth; }
         .font-heading { font-family: 'Space Grotesk', sans-serif; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
         .amazon-gradient { background: linear-gradient(90deg, #FF9900 0%, #E67E22 100%); }
         .gold-text { color: #D4AF37; }
+        .loading-spinner { border: 3px solid rgba(255,255,255,.3); border-radius: 50%; border-top-color: #fff; width: 20px; height: 20px; animation: spin 1s ease-in-out infinite; display: none; }
+        @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 </head>
 <body class="antialiased">
@@ -19,95 +21,138 @@
     <nav class="fixed w-full z-50 glass py-4 px-6 flex justify-between items-center">
         <div class="flex items-center gap-2">
             <div class="w-10 h-10 amazon-gradient rounded-lg flex items-center justify-center font-bold text-white shadow-lg shadow-orange-500/20">OE</div>
-            <span class="text-xl font-bold tracking-tight gold-text">OHIO ELITE <span class="text-white font-light">SUPPORT</span></span>
+            <span class="text-xl font-bold tracking-tight gold-text uppercase">Ohio Elite <span class="text-white font-light">Support</span></span>
         </div>
         <div class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
             <a href="#services" class="hover:text-orange-400 transition">Services</a>
             <a href="#cases" class="hover:text-orange-400 transition">Case Studies</a>
             <a href="#portal" class="hover:text-orange-400 transition">Tester Portal</a>
-            <a href="#contact" class="hover:text-orange-400 transition text-orange-500">Contact Team</a>
+            <a href="https://wa.me/YOUR_NUMBER_HERE" class="px-5 py-2 amazon-gradient rounded-full text-white hover:scale-105 transition">Chat Now</a>
         </div>
     </nav>
 
-    <section class="relative pt-40 pb-20 px-6 overflow-hidden">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-10 pointer-events-none" style="background-image: radial-gradient(#4f46e5 0.5px, transparent 0.5px); background-size: 24px 24px;"></div>
-        <div class="max-w-5xl mx-auto text-center relative z-10">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs font-semibold text-orange-400 mb-6 uppercase tracking-widest">
+    <section class="relative pt-40 pb-20 px-6 overflow-hidden text-center">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-[10px] font-semibold text-orange-400 mb-6 uppercase tracking-widest">
                 <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span></span>
                 Ohio Office: <span id="local-time">Loading...</span>
             </div>
-            <h1 class="text-5xl md:text-7xl font-heading font-bold mb-8 leading-tight">We Scale Amazon Brands with <span class="gold-text">Data & Design.</span></h1>
-            <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">High-conversion ranking strategies and market intelligence for elite sellers who demand results.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#portal" class="amazon-gradient px-8 py-4 rounded-full font-bold text-white shadow-xl shadow-orange-600/20 hover:scale-105 transition">Access Tester Portal</a>
-                <a href="#cases" class="glass px-8 py-4 rounded-full font-bold hover:bg-white/5 transition">View Case Studies</a>
+            <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6">Scale Your Amazon Brand <br><span class="gold-text underline decoration-orange-500/30">With Data Intelligence.</span></h1>
+            <p class="text-slate-400 text-lg max-w-2xl mx-auto mb-10">Premium ranking strategies, organic growth, and elite product testing for serious Amazon sellers.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#portal" class="amazon-gradient px-8 py-4 rounded-xl font-bold text-white shadow-xl shadow-orange-600/20">Access Tester Portal</a>
+                <a href="#cases" class="glass px-8 py-4 rounded-xl font-bold hover:bg-white/5 transition">View Live Campaigns</a>
             </div>
         </div>
     </section>
 
     <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 px-6 mb-24">
         <div class="glass p-6 rounded-2xl text-center">
-            <div class="text-3xl font-bold gold-text mb-1">95%</div>
-            <div class="text-xs text-slate-500 uppercase tracking-tighter">Success Rate</div>
+            <div class="text-2xl font-bold gold-text">95%</div>
+            <div class="text-[10px] text-slate-500 uppercase">Success Rate</div>
         </div>
         <div class="glass p-6 rounded-2xl text-center">
-            <div class="text-3xl font-bold gold-text mb-1">1000+</div>
-            <div class="text-xs text-slate-500 uppercase tracking-tighter">Brands Scaled</div>
+            <div class="text-2xl font-bold gold-text">1000+</div>
+            <div class="text-[10px] text-slate-500 uppercase">Brands Scaled</div>
         </div>
         <div class="glass p-6 rounded-2xl text-center">
-            <div class="text-3xl font-bold gold-text mb-1">100%</div>
-            <div class="text-xs text-slate-500 uppercase tracking-tighter">Data Driven</div>
+            <div class="text-2xl font-bold gold-text">Verified</div>
+            <div class="text-[10px] text-slate-500 uppercase">US Residential IPs</div>
         </div>
         <div class="glass p-6 rounded-2xl text-center border-orange-500/20">
-            <div class="text-3xl font-bold text-orange-500 mb-1">ACTIVE</div>
-            <div class="text-xs text-slate-500 uppercase tracking-tighter">System Status</div>
+            <div class="text-2xl font-bold text-orange-500">ACTIVE</div>
+            <div class="text-[10px] text-slate-500 uppercase">System Status</div>
         </div>
     </div>
 
-    <section id="cases" class="py-20 px-6 max-w-6xl mx-auto">
-        <h2 class="text-3xl font-heading font-bold mb-12 text-center underline decoration-orange-500 underline-offset-8">Active Brand Campaigns</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="glass p-8 rounded-3xl group hover:border-orange-500/30 transition">
-                <div class="flex justify-between items-start mb-6">
-                    <span class="px-3 py-1 bg-green-500/10 text-green-500 text-xs rounded-full font-bold uppercase">Optimization Live</span>
-                    <span class="text-slate-500 text-xs">ASIN: B0...TR</span>
+    <section id="portal" class="py-20 px-6 max-w-xl mx-auto">
+        <div class="glass p-8 rounded-3xl border-t-4 border-orange-500">
+            <h2 class="text-2xl font-heading font-bold mb-2">Tester Report Portal</h2>
+            <p class="text-slate-500 text-sm mb-8">Submit your order details for verification.</p>
+            
+            <form id="tester-form" class="space-y-5">
+                <div>
+                    <label class="block text-[10px] font-bold text-slate-400 uppercase mb-2">Amazon Order Number</label>
+                    <input type="text" id="order-id" required placeholder="111-XXXXXXX-XXXXXXX" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-orange-500 transition">
                 </div>
-                <h3 class="text-xl font-bold mb-4">Industrial Grade Power Solutions</h3>
-                <div class="space-y-4 mb-6">
-                    <div>
-                        <div class="flex justify-between text-xs mb-1"><span class="text-slate-400">Conversion Rate</span><span class="text-orange-400">+189%</span></div>
-                        <div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden"><div class="bg-orange-500 h-full w-[85%]"></div></div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-xs mb-1"><span class="text-slate-400">Review Velocity</span><span class="text-orange-400">+203%</span></div>
-                        <div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden"><div class="bg-orange-500 h-full w-[92%]"></div></div>
-                    </div>
+                <div>
+                    <label class="block text-[10px] font-bold text-slate-400 uppercase mb-2">Review/Feedback Link</label>
+                    <input type="url" id="review-link" required placeholder="https://amazon.com/gp/..." class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-orange-500 transition">
                 </div>
-                <a href="https://a.co/d/0fYZLQTR" target="_blank" class="text-sm font-semibold text-slate-300 group-hover:text-orange-400 flex items-center gap-2">View Product Listing &rarr;</a>
-            </div>
-
-            <div class="glass p-8 rounded-3xl group hover:border-orange-500/30 transition">
-                <div class="flex justify-between items-start mb-6">
-                    <span class="px-3 py-1 bg-green-500/10 text-green-500 text-xs rounded-full font-bold uppercase">Rank Climbing</span>
-                    <span class="text-slate-500 text-xs">ASIN: B0...Z8</span>
-                </div>
-                <h3 class="text-xl font-bold mb-4">Premium Kitchen Management</h3>
-                <div class="space-y-4 mb-6">
-                    <div>
-                        <div class="flex justify-between text-xs mb-1"><span class="text-slate-400">Organic Visibility</span><span class="text-orange-400">High</span></div>
-                        <div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden"><div class="bg-orange-500 h-full w-[78%]"></div></div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-xs mb-1"><span class="text-slate-400">Active Testers</span><span class="text-orange-400">8 Verified</span></div>
-                        <div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden"><div class="bg-orange-500 h-full w-[65%]"></div></div>
-                    </div>
-                </div>
-                <a href="https://a.co/d/03BFigZ8" target="_blank" class="text-sm font-semibold text-slate-300 group-hover:text-orange-400 flex items-center gap-2">View Product Listing &rarr;</a>
+                <button type="submit" id="submit-btn" class="w-full amazon-gradient py-4 rounded-xl font-bold uppercase tracking-widest flex justify-center items-center gap-2">
+                    <span id="btn-text">Submit Report</span>
+                    <div id="spinner" class="loading-spinner"></div>
+                </button>
+            </form>
+            <div id="success-msg" class="hidden mt-4 p-4 bg-green-500/10 text-green-500 text-sm rounded-xl text-center font-semibold">
+                Report submitted successfully! Verification in progress.
             </div>
         </div>
     </section>
 
-    <section id="portal" class="py-20 px-6 bg-slate-950/50">
+    <footer class="py-10 border-t border-white/5 text-center px-6">
+        <p class="text-[10px] text-slate-600 uppercase tracking-widest">&copy; 2026 Ohio Elite Support Agency. Not affiliated with Amazon.com Inc.</p>
+    </footer>
+
+    <script src="notifications.js"></script>
+
+    <script>
+        // Local Time Sync
+        function updateTime() {
+            const options = { timeZone: "America/New_York", hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+            document.getElementById('local-time').textContent = new Intl.DateTimeFormat('en-US', options).format(new Date()) + " EST";
+        }
+        setInterval(updateTime, 1000); updateTime();
+
+        // Form Logic
+        const form = document.getElementById('tester-form');
+        const btn = document.getElementById('submit-btn');
+        const spinner = document.getElementById('spinner');
+        const btnText = document.getElementById('btn-text');
+        const successMsg = document.getElementById('success-msg');
+
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+            btn.disabled = true;
+            spinner.style.display = 'block';
+            btnText.textContent = 'Processing...';
+
+            // REPLACE THIS URL WITH YOUR GOOGLE SCRIPT WEB APP URL
+            const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';
+
+            const data = {
+                orderNumber: document.getElementById('order-id').value,
+                reviewLink: document.getElementById('review-link').value,
+                timestamp: new Date().toLocaleString()
+            };
+
+            try {
+                // Testing simulated submit (Google script link na thakle eita kaj korbe demo hishebe)
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // If you have Google Script URL, uncomment below:
+                /*
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: JSON.stringify(data)
+                });
+                */
+
+                successMsg.classList.remove('hidden');
+                form.reset();
+            } catch (err) {
+                alert("Submission failed. Please try again.");
+            } finally {
+                btn.disabled = false;
+                spinner.style.display = 'none';
+                btnText.textContent = 'Submit Report';
+                setTimeout(() => successMsg.classList.add('hidden'), 5000);
+            }
+        };
+    </script>
+</body>
+</html>    <section id="portal" class="py-20 px-6 bg-slate-950/50">
         <div class="max-w-xl mx-auto">
             <div class="text-center mb-10">
                 <h2 class="text-3xl font-heading font-bold mb-4">Tester Report Portal</h2>
