@@ -8,13 +8,13 @@
 ## 🚀 Core Features
 - **Real-time Analytics Feed:** Live tracking of optimization campaigns.
 - **Elite Tester Portal:** Secure reporting system for product ambassadors.
-- **Dynamic Local Time Sync:** Built-in Ohio, US time zone synchronization for professional presence.
-- **Interactive Support Simulation:** Real-time communication demo for brand owners.
+- **Dynamic Local Time Sync:** Built-in Ohio, US time zone synchronization.
+- **Interactive Support:** Premium UI/UX designed for maximum conversion.
 
 ## 🛠️ Tech Stack
 - **Frontend:** HTML5, Tailwind CSS (via CDN)
 - **Interactive:** Vanilla JavaScript
-- **Fonts:** Space Grotesk, JetBrains Mono
+- **Fonts:** Space Grotesk, Inter
 
 ## 📂 Project Structure
 - `index.html`: The main entry point of the agency landing page.
